@@ -1,6 +1,6 @@
 #pragma once
 
-namespace raft {
+namespace cg {
 
 class Thread {
 
@@ -12,4 +12,4 @@ class ThisThread {
     }
 };
 
-}  // end of namespace raft
+}  // end of namespace cg

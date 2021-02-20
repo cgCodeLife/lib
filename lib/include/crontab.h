@@ -1,8 +1,24 @@
+#pragma once
+
+#include <stdint.h>
+#include <stdlib.h>
 
 #include <algorithm>
 #include <cmath>
 #include <cstdlib>
+#include <string>
 #include <vector>
+
+#include "lib/include/log.h"
+#include "lib/include/strings.h"
+#include "re2/re2.h"
+
+namespace cg {
+
+static const char* k_pattern_division_everyone = "\\*";
+static const char* k_pattern_division_every = "\\*/[0-9]+";
+static const char* k_pattern_someone = "([0-9]+[,]*)+";
+static const char* k_pattern_someone_range = "([0-9]+-[0-9]+[,]*)+";  // eg: 0-10,15-20
 
 struct Date {
     uint64_t timestamp_;
@@ -35,17 +51,8 @@ struct Rule {
         policy_ = POLICY_NUM;
     }
 
-    bool haveZero() {
-        for (auto& it : list_) {
-            if (it == 0 && policy_ != POLICY_SOMEONE) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     bool Empty() {
-        return type_ == RULE_TYPE_NUM || policy_ == POLICY_NUM || list_.empty() || haveZero();
+        return type_ == RULE_TYPE_NUM || policy_ == POLICY_NUM || list_.empty();
     }
 
     bool Find(int date) {
@@ -61,6 +68,11 @@ struct Rule {
         uint8_t min_gap = 255;
         uint8_t res = 0;
         for (auto& it : list_) {
+            if (policy_ == POLICY_DIVISION && static_cast<uint32_t>(it) == 0) {
+                LOG(INFO) << "ignore type_:" << type_;
+                res = 0;
+                break;
+            }
             auto gap = std::min(static_cast<uint8_t>(std::abs(static_cast<uint8_t>(date) - it)),
                     min_gap);
             if (gap != min_gap) {
@@ -73,6 +85,27 @@ struct Rule {
 
 class CronTab {
 public:
+    // check crontab pattern
+    static bool Invalid(const std::string& pattern) {
+        std::vector<std::string> v;
+        StringSplit(" ", pattern, &v);
+        if (v.size() != 5) {
+            fprintf(stderr, "invalid pattern for split. pattern:%s, size:%u\n",
+                    pattern.c_str(), static_cast<uint32_t>(v.size()));
+            return true;
+        }
+        for (const auto& it : v) {
+            if (!RE2::FullMatch(it, k_pattern_division_every)
+                    && !(RE2::FullMatch(it, k_pattern_division_everyone))
+                    && !(RE2::FullMatch(it, k_pattern_someone))
+                    && !(RE2::FullMatch(it, k_pattern_someone_range))) {
+                fprintf(stderr, "invalid regex. pattern:%s\n", it.c_str());
+                return true;
+            }
+        }
+        return false;
+    }
+
     static bool Invalid(RuleType type, Policy policy) {
         return (type < RULE_TYPE_MON || type >= RULE_TYPE_NUM)
             || (policy < POLICY_DIVISION || policy >= POLICY_NUM);
@@ -99,6 +132,7 @@ public:
             }
             rules_[rule.type_] = rule;
         }
+        setLastDivision();
         return true;
     }
 
@@ -121,9 +155,22 @@ private:
 
     bool enoughDistance();
 
+    void setLastDivision();
+
 private:
     // Consistent with the crontab
     Rule rules_[RULE_TYPE_NUM];
     Date last_exe_;
+    RuleType last_division_;
 };
 
+// NOTE(caoge): parse crontab config by regex
+CronTab* GenCronTab(const std::string& pattern);
+
+Policy ParsePolicy(const std::string& pattern);
+
+std::vector<uint8_t> ParseData(const Policy& policy, const std::string& pattern);
+
+void parseRange(const std::string& pattern, uint8_t* begin, uint8_t* end);
+
+}  // end of namespace cg

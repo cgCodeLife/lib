@@ -1,9 +1,9 @@
 #pragma once
 
-namespace raft {
+namespace cg {
 
 class ThreadPool {
 
 };
 
-}  // end of namespace raft
+}  // end of namespace cg
