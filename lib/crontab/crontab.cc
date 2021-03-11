@@ -6,7 +6,7 @@
 #include <unordered_map>
 
 #include "include/assert.h"
-#include "include/og.h"
+#include "include/log.h"
 #include "system/timestamp.h"
 
 namespace cg {
