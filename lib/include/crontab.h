@@ -9,9 +9,10 @@
 #include <string>
 #include <vector>
 
-#include "lib/include/log.h"
-#include "lib/include/strings.h"
+#include "include/log.h"
+#include "include/strings.h"
 #include "re2/re2.h"
+#include "system/timestamp.h"
 
 namespace cg {
 
