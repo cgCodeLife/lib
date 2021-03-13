@@ -1,0 +1,5 @@
+function(configure_headers)
+    foreach(src IN LISTS ARGN)
+        configure_file(${src} "${PROJECT_BINARY_DIR}/lib/${src}")
+    endforeach()
+endfunction()

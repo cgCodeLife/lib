@@ -1,0 +1,248 @@
+{
+   ignore_bvar_1
+   Memcheck:Cond
+   fun:round
+   fun:inplace_divide
+   fun:append_second
+   fun:append
+   fun:_ZN4bvar13PassiveStatusIiE13SeriesSampler11take_sampleEv
+   fun:_ZN4bvar6detail16SamplerCollector3runEv
+   fun:_ZN4bvar6detail16SamplerCollector15sampling_threadEPv
+   fun:start_thread
+   fun:clone
+}
+
+{
+   ignore_bvar_2
+   Memcheck:Cond
+   fun:_ZNK4bvar9PerSecondINS_13PassiveStatusImEEE9get_valueEl
+   fun:_ZN4bvar6detail10WindowBaseINS_13PassiveStatusImEELNS_15SeriesFrequencyE1EE13SeriesSampler11take_sampleEv
+   fun:_ZN4bvar6detail16SamplerCollector3runEv
+   fun:_ZN4bvar6detail16SamplerCollector15sampling_threadEPv
+   fun:start_thread
+   fun:clone
+}
+
+{
+   ignore_bvar_3
+   Memcheck:Cond
+   fun:inplace_divide
+   fun:append_second
+   fun:append
+   fun:_ZN4bvar6detail10WindowBaseINS_13PassiveStatusImEELNS_15SeriesFrequencyE1EE13SeriesSampler11take_sampleEv
+   fun:_ZN4bvar6detail16SamplerCollector3runEv
+   fun:_ZN4bvar6detail16SamplerCollector15sampling_threadEPv
+   fun:start_thread
+   fun:clone
+}
+
+{
+   ignore_bvar_4
+   Memcheck:Cond
+   fun:round
+   fun:_ZNK4bvar9PerSecondINS_13PassiveStatusImEEE9get_valueEl
+   fun:_ZN4bvar6detail10WindowBaseINS_13PassiveStatusImEELNS_15SeriesFrequencyE1EE13SeriesSampler11take_sampleEv
+   fun:_ZN4bvar6detail16SamplerCollector3runEv
+   fun:_ZN4bvar6detail16SamplerCollector15sampling_threadEPv
+   fun:start_thread
+   fun:clone
+}
+
+{
+   ignore_bvar_5
+   Memcheck:Cond
+   fun:round
+   fun:inplace_divide
+   fun:append_second
+   fun:append
+   fun:_ZN4bvar6detail10WindowBaseINS_13PassiveStatusImEELNS_15SeriesFrequencyE1EE13SeriesSampler11take_sampleEv
+   fun:_ZN4bvar6detail16SamplerCollector3runEv
+   fun:_ZN4bvar6detail16SamplerCollector15sampling_threadEPv
+   fun:start_thread
+   fun:clone
+}
+
+{
+   ignore_unwind_1
+   Memcheck:Param
+   write(buf)
+   ...
+   fun:__static_initialization_and_destruction_0
+   fun:_GLOBAL__sub_I_mutex.cpp
+   ...
+}
+
+{
+   ignore_unwind_2
+   Memcheck:Param
+   msync(start)
+   ...
+   fun:__static_initialization_and_destruction_0
+   fun:_GLOBAL__sub_I_mutex.cpp
+   ...
+}
+
+{
+   ignore_unwind_3
+   Memcheck:Param
+   msync(start)
+   ...
+   fun:RecordGrowth
+   ...
+}
+
+{
+   ignore_brpc_keytable1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:_Znwm
+   fun:_ZN4brpc6Server13StartInternalERK7in_addrRKNS_9PortRangeEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartERKN5butil8EndPointEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartEPKcPKNS_13ServerOptionsE
+   fun:_ZN9bytestore10rootserver28GetRebalanceChunk_Basic_Test8TestBodyEv
+   fun:_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS_4TestEvEET0_PT_MS4_FS3_vEPKc
+   fun:_ZN7testing4Test3RunEv
+   obj:/gitrunner/builds/20031782/0/storage/bytestore/build/bytestore/rootserver/rebalance_controller_test
+   obj:/gitrunner/builds/20031782/0/storage/bytestore/build/bytestore/rootserver/rebalance_controller_test
+   fun:_ZN7testing8internal12UnitTestImpl11RunAllTestsEv
+   fun:_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS0_12UnitTestImplEbEET0_PT_MS4_FS3_vEPKc
+   fun:_ZN7testing8UnitTest3RunEv
+}
+
+{
+   ignore_brpc_keytable2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:_Znwm
+   fun:_ZN4brpc6Server13StartInternalERK7in_addrRKNS_9PortRangeEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartERKN5butil8EndPointEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartEPKcPKNS_13ServerOptionsE
+   fun:Start
+   fun:_ZN9bytestore10rootserver28GetRebalanceChunk_Basic_Test8TestBodyEv
+   fun:HandleSehExceptionsInMethodIfSupported<testing::Test, void>
+   fun:_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS_4TestEvEET0_PT_MS4_FS3_vEPKc
+   fun:_ZN7testing4Test3RunEv
+   fun:_ZN7testing8TestInfo3RunEv.part.494
+   fun:Run
+   fun:_ZN7testing8TestCase3RunEv.part.495
+   fun:Run
+   fun:_ZN7testing8internal12UnitTestImpl11RunAllTestsEv
+   fun:HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>
+   fun:_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS0_12UnitTestImplEbEET0_PT_MS4_FS3_vEPKc
+   fun:_ZN7testing8UnitTest3RunEv
+}
+
+{
+   ignore_brpc_keytable3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:_Znwm
+   fun:_ZN4brpc6Server13StartInternalERK7in_addrRKNS_9PortRangeEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartERKN5butil8EndPointEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartEPKcPKNS_13ServerOptionsE
+   fun:Start
+   fun:_ZN9bytestore10metaserver32ChunkCollector_BuildTestEnv_Test8TestBodyEv
+   fun:HandleSehExceptionsInMethodIfSupported<testing::Test, void>
+   fun:_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS_4TestEvEET0_PT_MS4_FS3_vEPKc
+   fun:_ZN7testing4Test3RunEv
+   fun:_ZN7testing8TestInfo3RunEv.part.494
+   fun:Run
+   fun:_ZN7testing8TestCase3RunEv.part.495
+   fun:Run
+   fun:_ZN7testing8internal12UnitTestImpl11RunAllTestsEv
+   fun:HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>
+   fun:_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS0_12UnitTestImplEbEET0_PT_MS4_FS3_vEPKc
+   fun:_ZN7testing8UnitTest3RunEv
+}
+
+{
+   ignore_brpc_keytable4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:_Znwm
+   fun:_ZN4brpc6Server13StartInternalERK7in_addrRKNS_9PortRangeEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartERKN5butil8EndPointEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartEPKcPKNS_13ServerOptionsE
+}
+
+{
+   ignore_brpc_keytable5
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:_Znwm
+   fun:_ZN4brpc6Server13StartInternalERK8in6_addrRKNS_9PortRangeEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartERKN5butil8EndPointEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartEPKcPKNS_13ServerOptionsE
+   fun:_ZN9bytestore10rootserver28GetRebalanceChunk_Basic_Test8TestBodyEv
+   fun:_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS_4TestEvEET0_PT_MS4_FS3_vEPKc
+   fun:_ZN7testing4Test3RunEv
+   obj:/gitrunner/builds/20031782/0/storage/bytestore/build/bytestore/rootserver/rebalance_controller_test
+   obj:/gitrunner/builds/20031782/0/storage/bytestore/build/bytestore/rootserver/rebalance_controller_test
+   fun:_ZN7testing8internal12UnitTestImpl11RunAllTestsEv
+   fun:_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS0_12UnitTestImplEbEET0_PT_MS4_FS3_vEPKc
+   fun:_ZN7testing8UnitTest3RunEv
+}
+
+{
+   ignore_brpc_keytable6
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:_Znwm
+   fun:_ZN4brpc6Server13StartInternalERK8in6_addrRKNS_9PortRangeEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartERKN5butil8EndPointEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartEPKcPKNS_13ServerOptionsE
+   fun:Start
+   fun:_ZN9bytestore10rootserver28GetRebalanceChunk_Basic_Test8TestBodyEv
+   fun:HandleSehExceptionsInMethodIfSupported<testing::Test, void>
+   fun:_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS_4TestEvEET0_PT_MS4_FS3_vEPKc
+   fun:_ZN7testing4Test3RunEv
+   fun:_ZN7testing8TestInfo3RunEv
+   fun:_ZN7testing8TestCase3RunEv
+   fun:_ZN7testing8internal12UnitTestImpl11RunAllTestsEv
+   fun:HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>
+   fun:_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS0_12UnitTestImplEbEET0_PT_MS4_FS3_vEPKc
+   fun:_ZN7testing8UnitTest3RunEv
+}
+
+{
+   ignore_brpc_keytable7
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:_Znwm
+   fun:_ZN4brpc6Server13StartInternalERK8in6_addrRKNS_9PortRangeEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartERKN5butil8EndPointEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartEPKcPKNS_13ServerOptionsE
+   fun:Start
+   fun:_ZN9bytestore10metaserver32ChunkCollector_BuildTestEnv_Test8TestBodyEv
+   fun:HandleSehExceptionsInMethodIfSupported<testing::Test, void>
+   fun:_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS_4TestEvEET0_PT_MS4_FS3_vEPKc
+   fun:_ZN7testing4Test3RunEv
+   fun:_ZN7testing8TestInfo3RunEv
+   fun:_ZN7testing8TestCase3RunEv
+   fun:_ZN7testing8internal12UnitTestImpl11RunAllTestsEv
+   fun:HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>
+   fun:_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS0_12UnitTestImplEbEET0_PT_MS4_FS3_vEPKc
+   fun:_ZN7testing8UnitTest3RunEv
+}
+
+{
+   ignore_brpc_keytable8
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:_Znwm
+   fun:_ZN4brpc6Server13StartInternalERK8in6_addrRKNS_9PortRangeEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartERKN5butil8EndPointEPKNS_13ServerOptionsE
+   fun:_ZN4brpc6Server5StartEPKcPKNS_13ServerOptionsE
+}
+
+{
+   ignore_check_match_1
+   Memcheck:Addr1
+   fun:check_match.9457
+}
+
+{
+   ignore_check_match_4
+   Memcheck:Addr4
+   fun:check_match.9457
+}
