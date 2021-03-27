@@ -4,6 +4,9 @@
  */
 #pragma once
 
+#include <functional>
+#include <iostream>
+
 #undef LIKELY
 #undef UNLIKELY
 
@@ -14,3 +17,19 @@
 #define LIKELY(x) (x)
 #define UNLIKELY(x) (x)
 #endif
+
+#define FATAL 1
+#undef LOG
+#define LOG(x) std::cout
+#define LOG_FATAL(x) LOG(X)
+
+class LibInitializer {
+    LibInitializer(std::function<void(void)> func) {
+        func();
+    }
+};
+
+#define LIB_INITIALIZER(name, f) \
+    namespace { \
+        LibInitializer lib_initializer_##name(f); \
+    }  

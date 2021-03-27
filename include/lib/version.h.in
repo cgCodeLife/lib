@@ -1,0 +1,17 @@
+//  Created by caoge@strivemycodelife@163.com on 2021-03-21
+
+#ifndef LIB_VERSION_H_  // NOLINT(build/header_guard)
+#define LIB_VERSION_H_
+
+#cmakedefine GIT_HASH "@GIT_HASH@"
+#cmakedefine GIT_BRANCH "@GIT_BRANCH@"
+
+#define LIB_MAJOR 1
+#define LIB_MINOR 3
+#define LIB_PATCH 0
+
+#define __LIB_MAJOR__ LIB_MAJOR
+#define __LIB_MINOR__ LIB_MINOR
+#define __LIB_PATCH__ LIB_PATCH
+
+#endif  // LIB_VERSION_H_  // NOLINT(build/header_guard)

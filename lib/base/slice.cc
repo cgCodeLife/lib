@@ -50,7 +50,7 @@ bool Slice::DecodeHex(std::string* result) const {
     if (!result) {
         return false;
     }
-    result.clear();
+    result->clear();
     result->reserve(len / 2);
     for (std::size_t i = 0; i < len;) {
         int h1 = fromHex(data_[i++]);

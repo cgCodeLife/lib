@@ -5,8 +5,8 @@
 #pragma once
 
 #include <stdlib.h>
+#include <sstream>
 
-#include "include/log.h"
 #include "include/macros.h"
 
 #define ASSERT(c) cg::Assertion(__FILE__, __LINE__).Is((c), #c)
@@ -22,10 +22,10 @@ public:
     Assertion(const char* f, int l) : ok_(true), fname_(f), line_(l) {}
 
     ~Assertion() {
-        if (LILKELY(ok_)) {
+        if (LIKELY(ok_)) {
             return;
         }
-        LOGF_FATAL("%s:%d:%s\n", fname_, line_, ss_.str().c_str());
+        LOG(FATAL) << "fname:" << fname_ << ", line:" << line_ << ", msg:" <<  ss_.str().c_str();
         abort();
     }
 

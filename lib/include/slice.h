@@ -72,11 +72,11 @@ public:
         return r;
     }
 
-    bool StartsWith(const Slice& x) const {
+    bool StartWith(const Slice& x) const {
         return ((size_ >= x.size_) && (memcmp(data_, x.data_, x.size_) == 0));
     }
 
-    bool EndsWith(const Slice& x) const {
+    bool EndWith(const Slice& x) const {
         return ((size_ >= x.size_) && (memcmp(data_ + size_ - x.size_, x.data_, x.size_)));
     }
 
@@ -96,11 +96,11 @@ private:
     std::size_t size_;
 };
 
-inline bool operator==(const Slice& a, const Slice& b) const {
+bool operator==(const Slice& a, const Slice& b) {
     return ((a.Size() == b.Size()) && (memcmp(a.Data(), b.Data(), a.Size()) == 0));
 }
 
-inline bool operator!=(const Slice& a, const Slice& b) const {
+bool operator!=(const Slice& a, const Slice& b) {
     return !(a == b);
 }
 

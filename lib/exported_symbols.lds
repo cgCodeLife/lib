@@ -1,0 +1,5 @@
+{
+  global:
+    lib_*;
+  local: *;
+};
