@@ -1,9 +1,8 @@
 #pragma once
 
-namespace raft {
+namespace cg {
 
 class ScopLock {
-
 };
 
-}  // end of namespace raft
+}  // end of namespace cg

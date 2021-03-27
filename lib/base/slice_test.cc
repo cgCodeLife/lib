@@ -39,15 +39,15 @@ TEST_F(SliceTest, Basic) {
     Slice slice3(data3);
     EXPECT_EQ(true, slice.EndWith(slice3));
 
-    EXPECT_EQ(false, slice.Compare(slice2));
-    EXPECT_EQ(true, slice.Compare(slice));
+    EXPECT_EQ(1, slice.Compare(slice2));
+    EXPECT_EQ(0, slice.Compare(slice));
 
     EXPECT_EQ(5, slice.DifferenceOffset(slice2));
     EXPECT_EQ(0, slice.DifferenceOffset(slice3));
     EXPECT_EQ(slice.Size(), slice.DifferenceOffset(slice));
 
     slice.Clear();
-    EXPECT_EQ(0, data.size());
+    EXPECT_EQ(0, slice.Size());
 }
 
 TEST_F(SliceTest, RemovePrefix) {
@@ -57,7 +57,7 @@ TEST_F(SliceTest, RemovePrefix) {
 
     std::string data2 = "World";
     Slice slice2(data2);
-    EXPECT_EQ(true, slice.Compare(slice2));
+    EXPECT_EQ(0, slice.Compare(slice2));
 }
 
 TEST_F(SliceTest, RemoveSuffix) {
@@ -67,8 +67,8 @@ TEST_F(SliceTest, RemoveSuffix) {
 
     std::string data2 = "Hello";
     Slice slice2(data2);
-    EXPECT_EQ(true, slice.Compare(slice2));
+    EXPECT_EQ(0, slice.Compare(slice2));
 }
 
-}
+}  // end of namespace unittest
 }  // end of namespace cg

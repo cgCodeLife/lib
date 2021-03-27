@@ -1,0 +1,7 @@
+{
+    localtime_r_ignore
+    Memcheck:Addr8
+    fun:vsscanf
+    obj:*
+    fun:__tzset_parse_tz
+}

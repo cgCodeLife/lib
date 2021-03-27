@@ -7,7 +7,7 @@
 #include <cstddef>
 #include <string>
 
-#include "assert.h"
+#include "include/assert.h"
 
 namespace cg {
 
@@ -16,9 +16,9 @@ class Slice {
 public:
     Slice() : data_(""), size_(0) {}
 
-    Slice(const std::string& s) : data_(s.data()), size_(s.size()) {}
+    explicit Slice(const std::string& s) : data_(s.data()), size_(s.size()) {}
 
-    Slice(const char* s) : data_(s) {
+    explicit Slice(const char* s) : data_(s) {
         size_ = (s == nullptr) ? 0 : strlen(s);
     }
 
@@ -77,7 +77,7 @@ public:
     }
 
     bool EndWith(const Slice& x) const {
-        return ((size_ >= x.size_) && (memcmp(data_ + size_ - x.size_, x.data_, x.size_)));
+        return ((size_ >= x.size_) && (memcmp(data_ + size_ - x.size_, x.data_, x.size_) == 0));
     }
 
     inline std::size_t DifferenceOffset(const Slice& b) const {

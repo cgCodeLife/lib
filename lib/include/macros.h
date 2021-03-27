@@ -24,7 +24,7 @@
 #define LOG_FATAL(x) LOG(X)
 
 class LibInitializer {
-    LibInitializer(std::function<void(void)> func) {
+    explicit LibInitializer(std::function<void(void)> func) {
         func();
     }
 };
@@ -32,4 +32,4 @@ class LibInitializer {
 #define LIB_INITIALIZER(name, f) \
     namespace { \
         LibInitializer lib_initializer_##name(f); \
-    }  
+    }
